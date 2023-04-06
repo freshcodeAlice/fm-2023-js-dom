@@ -1,0 +1,9 @@
+.list-item {
+    background-color: purple;
+    display: inline-block;
+}
+
+.new-list-item {
+    background-color: brown;
+    color: white;
+}
