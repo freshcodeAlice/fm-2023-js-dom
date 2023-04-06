@@ -1,25 +1,34 @@
 /*
-DOM - інтерфейс для взаємодії з документом
-Вхідна точка інтерфейсу - об'єкт document
+Створити структуру:
 
-Все, що є в документ - це об'єкти.
+header
+    nav
+        ul
+            li.list-item*5
+
+main
+    article
+        h1{Heading}
+        p>lorem50
+
+Не використовуючи css-файла, зробити заголовок фіолетовим і з розміром тексту 20пкс
+List-item вибудувати в рядочок, зробити їм фоновий колір рожевий
+
+Параграфу дати колір тексту синій
+
+
 
 */
 
-const p = document.querySelector('p');
-console.dir(p);
-
-const cn = document.querySelector('.cn');
-console.dir(cn);
-
-
-const ul = document.querySelector('section > article > ul');
-console.dir(ul);
+const h1 = document.querySelector('h1');
+h1.style.color = 'violet';
+h1.style.fontSize = '20px';
 
 const liArr = document.querySelectorAll('li');
-console.dir(liArr);
+liArr.forEach((li)=>{
+    li.style.display = 'inline-block';
+    li.style.backgroundColor = 'pink'
+})
 
-
-const htmlLiArr = document.getElementsByTagName('li');
-console.dir(htmlLiArr);
-
+const p = document.querySelector('p');
+p.style.color = 'blue';
