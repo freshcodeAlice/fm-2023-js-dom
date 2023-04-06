@@ -1,22 +1,25 @@
-const par = document.getElementById('paragraph');
-
-console.dir(par);
-par.textContent = 'Hello, world';
-
 /*
 DOM - інтерфейс для взаємодії з документом
 Вхідна точка інтерфейсу - об'єкт document
 
 Все, що є в документ - це об'єкти.
 
-
 */
 
+const p = document.querySelector('p');
+console.dir(p);
 
-const liArr = document.getElementsByTagName('li');
-console.log(liArr);
+const cn = document.querySelector('.cn');
+console.dir(cn);
 
-console.log(liArr[0]);
 
-const cnArray = document.getElementsByClassName('cn');
-console.log(cnArray);
+const ul = document.querySelector('section > article > ul');
+console.dir(ul);
+
+const liArr = document.querySelectorAll('li');
+console.dir(liArr);
+
+
+const htmlLiArr = document.getElementsByTagName('li');
+console.dir(htmlLiArr);
+
