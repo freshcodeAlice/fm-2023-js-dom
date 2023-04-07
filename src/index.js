@@ -14,23 +14,12 @@ const btn = document.querySelector('button');
 btn.addEventListener('click', function(event) {
     console.log('button');
     // event.target - посилання на об'єкт, який є ціллю нашої події
-    console.dir(event.target);
+    console.dir(event);
     event.target.style.backgroundColor = 'blue';
 }, true);
 
-
-/*
-Зробити 5 кнопок, за натиснення на кожну з них кнопка сама себе видаляє
- */
-
-const btnCollection = document.querySelectorAll('article > button');
-console.log(btnCollection);
-
-btnCollection.forEach(btn => {
-    btn.addEventListener('click', function (event) {
-        event.target.remove()
-    })
-})
+const myEvent = new PointerEvent('click');
+btn.dispatchEvent(myEvent);
 
 
 // div.addEventListener('click', function() {
