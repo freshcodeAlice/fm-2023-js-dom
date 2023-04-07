@@ -8,21 +8,27 @@ let count = 0;
 
 function incrementScore() {
     count++;
-    div.textContent = count;
+    updateView()
 }
 
-/*
-Написати код таким чином, щоб в блоці score відображалась кількість натиснень на кнопку
+function decrementScore() {
+    count--;
+    updateView()
+}
 
-*/
-
-btn.addEventListener('click', incrementScore)
-
-
-
-
+function updateView() {
+    div.textContent = count;
+}
 
 /*
 Задачка з *: збільшувати рахунок за натиснення на батьківський елемент, а за натиснення на будь-який з дочірніх - віднімати бали
 
 */
+
+parentDiv.addEventListener('click', function(event){
+    if(event.currentTarget === event.target) {
+        incrementScore()
+    } else {
+        decrementScore()
+    }
+})
