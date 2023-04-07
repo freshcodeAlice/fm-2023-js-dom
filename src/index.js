@@ -9,22 +9,25 @@
 
 const btn = document.querySelector('button');
 // const section = document.querySelector('section');
-// const div = document.querySelector('div');
+ const div = document.querySelector('div');
 
-btn.addEventListener('click', function(event) {
-    console.log('button');
-    // event.target - посилання на об'єкт, який є ціллю нашої події
-    console.dir(event);
-    event.target.style.backgroundColor = 'blue';
-}, true);
+// btn.addEventListener('click', function(event) {
+//     console.log('button');
+//     // event.target - посилання на об'єкт, який є ціллю нашої події
+//     console.dir(event);
 
-const myEvent = new PointerEvent('click');
-btn.dispatchEvent(myEvent);
+// });
 
 
-// div.addEventListener('click', function() {
-//     console.log('div');
-// }, true);
+div.addEventListener('click', function(event) {
+    console.log('div');
+    console.log(event.target);
+    console.log(event.currentTarget); // currentTarget = елемент, на якому спрацьовує eventListener
+    if(event.target === event.currentTarget) {
+        event.target.children[0].style.backgroundColor = 'red';
+    }
+
+});
 
 // section.addEventListener('click', function() {
 //     console.log('section');
