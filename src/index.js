@@ -8,26 +8,41 @@
 
 
 const btn = document.querySelector('button');
-const section = document.querySelector('section');
-const div = document.querySelector('div');
+// const section = document.querySelector('section');
+// const div = document.querySelector('div');
 
 btn.addEventListener('click', function(event) {
     console.log('button');
-    console.log(event)
-}, true);
-
-div.addEventListener('click', function() {
-    console.log('div');
-}, true);
-
-section.addEventListener('click', function() {
-    console.log('section');
+    // event.target - посилання на об'єкт, який є ціллю нашої події
+    console.dir(event.target);
+    event.target.style.backgroundColor = 'blue';
 }, true);
 
 
-document.body.addEventListener('click', function() {
-    console.log('body');
-}, true);
+/*
+Зробити абзац тексту, за натиснення на який колір тексту стає жовтим
+
+*/
+
+const p = document.querySelector('p');
+p.addEventListener('mouseover', function(event) {
+    event.target.style.color = 'yellow';
+})
+
+
+
+// div.addEventListener('click', function() {
+//     console.log('div');
+// }, true);
+
+// section.addEventListener('click', function() {
+//     console.log('section');
+// }, true);
+
+
+// document.body.addEventListener('click', function() {
+//     console.log('body');
+// }, true);
 
 
 /*
