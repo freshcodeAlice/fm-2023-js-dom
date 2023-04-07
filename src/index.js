@@ -21,10 +21,10 @@ const btn = document.querySelector('button');
 
 div.addEventListener('click', function(event) {
     console.log(event.target);
+    event.stopPropagation();
 //    console.log(event.currentTarget); // currentTarget = елемент, на якому спрацьовує eventListener
-    if(event.target === event.currentTarget) {
-        event.target.children[0].style.backgroundColor = 'red';
-    }
+
+//        event.target.children[0].style.backgroundColor = 'red';
 
 }, true);
 
@@ -54,11 +54,3 @@ btn.addEventListener('click', function(event) {
 
 3 фаза - "сплиття" події
 */
-
-
-const form = document.querySelector('form');
-
-form.addEventListener('submit', function(event) {
-    event.preventDefault();
-    console.log(event)
-})
