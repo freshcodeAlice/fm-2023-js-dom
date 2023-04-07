@@ -4,30 +4,19 @@
 Клік мишею, наведення мишею, натиснення клавіші, завантаження ресурсу
 */
 
-const btn = document.querySelector('#btn');
-
-function clickHandler() {
-    alert('Button clicked');
-}
-
-btn.addEventListener('click', clickHandler);
-
-
-
-
 /*
-Зробити кнопку
-і написати функцію, яка виводить кількість разів, скільки на цю кнопку вже натискали раніше
+Зробити 5 кнопок і навісити на них обробник події. За натиснення на будь-яку з цих кнопок зі всіх кнопок знімається обробник
 */
 
-let counter = 0;
+ const btnCollection = document.querySelectorAll('button');
 
-function getCountClicker() {
-    alert(++counter);
+ btnCollection.forEach(btn => {
+    btn.addEventListener('click', clicker);
+ })
 
-    if (counter > 2) {
-        btn.removeEventListener('click', clickHandler);
-    }
+ function clicker() {
+    console.log('remove fun');
+    btnCollection.forEach(btn => {
+        btn.removeEventListener('click', clicker);
+    })
 }
-
-btn.addEventListener('click', getCountClicker);
