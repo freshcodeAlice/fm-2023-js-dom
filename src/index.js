@@ -20,15 +20,17 @@ btn.addEventListener('click', function(event) {
 
 
 /*
-Зробити абзац тексту, за натиснення на який колір тексту стає жовтим
+Зробити 5 кнопок, за натиснення на кожну з них кнопка сама себе видаляє
+ */
 
-*/
+const btnCollection = document.querySelectorAll('article > button');
+console.log(btnCollection);
 
-const p = document.querySelector('p');
-p.addEventListener('mouseover', function(event) {
-    event.target.style.color = 'yellow';
+btnCollection.forEach(btn => {
+    btn.addEventListener('click', function (event) {
+        event.target.remove()
+    })
 })
-
 
 
 // div.addEventListener('click', function() {
