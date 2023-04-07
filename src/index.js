@@ -4,19 +4,40 @@
 Клік мишею, наведення мишею, натиснення клавіші, завантаження ресурсу
 */
 
+/// Ціль події (target) - елемент, на якому сталася подія
+
+
+const btn = document.querySelector('button');
+const section = document.querySelector('section');
+const div = document.querySelector('div');
+
+btn.addEventListener('click', function(event) {
+    console.log('button');
+    console.log(event)
+}, true);
+
+div.addEventListener('click', function() {
+    console.log('div');
+}, true);
+
+section.addEventListener('click', function() {
+    console.log('section');
+}, true);
+
+
+document.body.addEventListener('click', function() {
+    console.log('body');
+}, true);
+
+
 /*
-Зробити 5 кнопок і навісити на них обробник події. За натиснення на будь-яку з цих кнопок зі всіх кнопок знімається обробник
+3 фази події
+
+1 фаза - це "занурення" події
+Подія стається на рівні ОС і "занурюється" до найглибше вкладеного елмента за тими координатами, де сталася подія
+
+2 фаза - "фаза цілі"
+Подія дісталася до елемента, якому була призначена
+
+3 фаза - "сплиття" події
 */
-
- const btnCollection = document.querySelectorAll('button');
-
- btnCollection.forEach(btn => {
-    btn.addEventListener('click', clicker);
- })
-
- function clicker() {
-    console.log('remove fun');
-    btnCollection.forEach(btn => {
-        btn.removeEventListener('click', clicker);
-    })
-}
