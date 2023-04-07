@@ -1,56 +1,28 @@
 // Подія
+const div = document.querySelector('.score');
+const btn = document.querySelector('button');
+const parentDiv = document.querySelector('div');
 
-/* Все, що стається на сторінці, все, чим користувач може взаємодіяти з нами - це події (event)
-Клік мишею, наведення мишею, натиснення клавіші, завантаження ресурсу
+let count = 0;
+// div.textContent = 1;
+
+function incrementScore() {
+    count++;
+    div.textContent = count;
+}
+
+/*
+Написати код таким чином, щоб в блоці score відображалась кількість натиснень на кнопку
+
 */
 
-/// Ціль події (target) - елемент, на якому сталася подія
+btn.addEventListener('click', incrementScore)
 
 
-const btn = document.querySelector('button');
-// const section = document.querySelector('section');
- const div = document.querySelector('div');
 
-// btn.addEventListener('click', function(event) {
-//     console.log('button');
-//     // event.target - посилання на об'єкт, який є ціллю нашої події
-//     console.dir(event);
-
-// });
-
-
-div.addEventListener('click', function(event) {
-    console.log(event.target);
-    event.stopPropagation();
-//    console.log(event.currentTarget); // currentTarget = елемент, на якому спрацьовує eventListener
-
-//        event.target.children[0].style.backgroundColor = 'red';
-
-}, true);
-
-
-btn.addEventListener('click', function(event) {
-    console.log(event.target);
-})
-
-// section.addEventListener('click', function() {
-//     console.log('section');
-// }, true);
-
-
-// document.body.addEventListener('click', function() {
-//     console.log('body');
-// }, true);
 
 
 /*
-3 фази події
+Задачка з *: збільшувати рахунок за натиснення на батьківський елемент, а за натиснення на будь-який з дочірніх - віднімати бали
 
-1 фаза - це "занурення" події
-Подія стається на рівні ОС і "занурюється" до найглибше вкладеного елмента за тими координатами, де сталася подія
-
-2 фаза - "фаза цілі"
-Подія дісталася до елемента, якому була призначена
-
-3 фаза - "сплиття" події
 */
