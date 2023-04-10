@@ -5,12 +5,3 @@
 body { 
     margin: 0;
 }
-
-.box {
-    width: 100px;
-    height: 100px;
-    background-color: green;
-    position: fixed;
-    top: 200px;
-    left: 300px;
-}
