@@ -22,4 +22,9 @@ section {
     height: 40px;
     background-color: pink;
     position: absolute;
+    transition: all 0.5s ease-in-out
+}
+
+.score {
+    font-size: 20px;
 }
