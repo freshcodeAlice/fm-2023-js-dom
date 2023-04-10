@@ -5,3 +5,18 @@
 body { 
     margin: 0;
 }
+
+.slider {
+    display: flex;
+    flex-direction: column;
+}
+
+.wrapper {
+    width: 400px;
+    height: 400px;
+}
+
+.image { 
+    width: 100%;
+    object-fit: cover;
+}
