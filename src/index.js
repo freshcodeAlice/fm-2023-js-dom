@@ -1,30 +1,18 @@
-const input = document.querySelector('[name="pass"]');
-console.log(input);
+const btn = document.querySelector('button');
+//const section = document.querySelector('section');
 
-input.addEventListener('change', function({target: {value: {length}}}) {
-    if(length < 5) {
-        showTip('low')
-    } else if (length >= 5 && length <= 7) {
-        showTip('medium')
-    } else {
-        showTip('strong')
-    }
-})
+btn.addEventListener('click', createSquare);
+
+
+function createSquare() {
+    const div = document.createElement('div'); // Створює елемент в пам'яті і повертає посилання на нього
+    document.body.append(div); // Приєднуємо до батьківського елемента, таким самим чином відображаючи елемент
+    div.classList.add('red-circle');
+    // div.append('text-text')
+}
+
 
 /*
-Напишіть обробку події change таким чином, щоб якщо довжина паролю < 5, виводилось "слабкий пароль"
-якщо від 5 до 7 - середній
-якщо більше 8 - добрий пароль
+За натиснення на кнопку створювати в body червоні кружечки
 
 */
-
-
-function showTip(passType = '') {
-    const tip = document.querySelector('.tip');
-    tip.classList.remove('show', 'low', 'medium', 'strong');
-    
-    /// Заповнюємо актуальними даними
-
-    tip.classList.add('show', passType);
-    tip.textContent = `${passType} password`;
-}

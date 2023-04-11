@@ -6,40 +6,9 @@ body {
     margin: 0;
 }
 
-
-.form {
-    width: 200px;
-    display: flex;
-    flex-direction: column;
-    margin: 0 auto;
-}
-
-.form * {
-    margin: 10px 0;
-}
-
-.tip {
-    display: none;
-    background-color: bisque;
-}
-
-.show {
-    display: block;
-    font-weight: bold;
-}
-
-.low {
-    color: red;
-}
-
-.medium {
-    color: yellow;
-}
-
-.strong {
-    color: green;
-}
-
-.hide {
-    display: none;
+.red-circle {
+    width: 100px;
+    height: 100px;
+    background-color: rgba(255, 0, 0, 0.549);
+    border-radius: 50%;
 }
