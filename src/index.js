@@ -1,25 +1,30 @@
-const form = document.querySelector('.form');
-const errorContainer = document.querySelector('.error-message');
+const input = document.querySelector('[name="pass"]');
+console.log(input);
 
-form.addEventListener('submit', function(event) {
-    event.preventDefault();
-    errorContainer.textContent = '';
-    errorContainer.classList.remove('show-error');
-//    console.log(event);
-    const {email: {value: emailValue}, pass: {value: passValue}} = event.target;
-//    if(!emailValue.includes('@')) {
-//     errorContainer.textContent = 'Email is not valid';
-//     errorContainer.classList.add('show-error');
-//    }
-   if(passValue.toLowerCase().includes('qwerty') || passValue.length <= 5) {
-    errorContainer.textContent = 'Pass is not valid';
-    errorContainer.classList.add('show-error');
-   }
+input.addEventListener('change', function({target: {value: {length}}}) {
+    if(length < 5) {
+        showTip('low')
+    } else if (length >= 5 && length <= 7) {
+        showTip('medium')
+    } else {
+        showTip('strong')
+    }
 })
 
-
 /*
-Прийняти від користувача пароль і перевірити, чи не місить він слова "qwerty" і чи більший він за 5 символів
- 
+Напишіть обробку події change таким чином, щоб якщо довжина паролю < 5, виводилось "слабкий пароль"
+якщо від 5 до 7 - середній
+якщо більше 8 - добрий пароль
 
 */
+
+
+function showTip(passType = '') {
+    const tip = document.querySelector('.tip');
+    tip.classList.remove('show', 'low', 'medium', 'strong');
+    
+    /// Заповнюємо актуальними даними
+
+    tip.classList.add('show', passType);
+    tip.textContent = `${passType} password`;
+}

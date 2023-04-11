@@ -18,12 +18,28 @@ body {
     margin: 10px 0;
 }
 
-.error-message {
+.tip {
     display: none;
-    color: red;
     background-color: bisque;
 }
 
-.show-error {
+.show {
     display: block;
+    font-weight: bold;
+}
+
+.low {
+    color: red;
+}
+
+.medium {
+    color: yellow;
+}
+
+.strong {
+    color: green;
+}
+
+.hide {
+    display: none;
 }
