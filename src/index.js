@@ -1,14 +1,12 @@
+const form = document.querySelector('.form');
+const errorContainer = document.querySelector('.error-message');
 
-/*
-Зробити div з п'ятьма різними кнопками. Кожній кнопці відповідає певний колір. За натиснення на кнопку батьківський дів в якості фонового кольору отримує те значення, яке написано на кнопці
-
-
-*/
-
-const btnCollection = document.querySelectorAll('button');
-
-btnCollection.forEach(btn => {
-    btn.addEventListener('click', function({target: {parentElement, dataset}}) {
-        parentElement.style.backgroundColor = dataset.color;
-    })
+form.addEventListener('submit', function(event) {
+    event.preventDefault();
+//    console.log(event);
+    const {email: {value: emailValue}, pass: {value: passValue}} = event.target;
+   if(!emailValue.includes('@')) {
+    errorContainer.textContent = 'Email is not valid';
+    errorContainer.classList.add('show-error');
+   }
 })
