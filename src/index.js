@@ -1,19 +1,37 @@
-const btn = document.querySelector('button');
-//const section = document.querySelector('section');
+const main = document.querySelector('main');
 
-btn.addEventListener('click', createSquare);
+const cardArray = data.map((catObj) => {
 
 
-function createSquare() {
-        const div = document.createElement('div'); // Створює елемент в пам'яті і повертає посилання на нього
-        document.body.append(div); // Приєднуємо до батьківського елемента, таким самим чином відображаючи елемент
-        div.classList.add('red-circle');
-        const parentWidth = document.body.offsetWidth;
-        const parentHeight = document.body.offsetHeight;
-        div.style.top = `${getRandomCoordinates(0, parentHeight)}px`;
-        div.style.left = `${getRandomCoordinates(0,parentWidth)}px`;
-}
+    // const img = document.createElement('img');
+    // img.setAttribute('src', catObj.avatar);
+    // img.classList.add('cat-photo');
+    const img = createElement('img', ['cat-photo']);
+    img.setAttribute('src', catObj.avatar);
+    
+    // const h3 = document.createElement('h3');
+    // h3.append(catObj.name);
+    // h3.classList.add('name');
+    const h3 = createElement('h3', ['name'], [catObj.name]);
 
-function getRandomCoordinates(min, max) {
-        return Math.random() * (max - min) + min;
+    // const p = document.createElement('p');
+    // p.classList.add('nickname');
+    // p.append(catObj.nickname);
+    const p = createElement('p', ['nickname'], [catObj.nickname]);
+
+    return createElement('section', [], [img, h3, p]);
+    //    const section = document.createElement('section');
+    // section.append(img, h3, p);
+    // return section
+})
+
+main.append(...cardArray);
+
+
+function createElement(type, classList = [], children = []){
+    const elem = document.createElement(type);
+    elem.classList.add(...classList);
+    elem.append(...children);
+
+    return elem;
 }

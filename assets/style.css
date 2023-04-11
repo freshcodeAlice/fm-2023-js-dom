@@ -8,11 +8,21 @@ body {
     overflow: hidden;
 }
 
-.red-circle {
+section {
+    width: 200px;
+    border: 1px solid;
+    padding: 4%;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    display: inline-block;
+    margin: 2px;
+}
+
+.cat-photo {
     width: 100px;
     height: 100px;
-    background-color: rgba(255, 0, 0, 0.549);
+    object-fit: cover;
     border-radius: 50%;
-    position: absolute;
-    border: 1px solid white;
 }
