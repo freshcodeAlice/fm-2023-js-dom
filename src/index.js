@@ -1,37 +1,50 @@
-const main = document.querySelector('main');
+/*
 
-const cardArray = data.map((catObj) => {
+Створити в розмітці form з інпутом і кнопкою
 
-
-    // const img = document.createElement('img');
-    // img.setAttribute('src', catObj.avatar);
-    // img.classList.add('cat-photo');
-    const img = createElement('img', ['cat-photo']);
-    img.setAttribute('src', catObj.avatar);
-    
-    // const h3 = document.createElement('h3');
-    // h3.append(catObj.name);
-    // h3.classList.add('name');
-    const h3 = createElement('h3', ['name'], [catObj.name]);
-
-    // const p = document.createElement('p');
-    // p.classList.add('nickname');
-    // p.append(catObj.nickname);
-    const p = createElement('p', ['nickname'], [catObj.nickname]);
-
-    return createElement('section', [], [img, h3, p]);
-    //    const section = document.createElement('section');
-    // section.append(img, h3, p);
-    // return section
-})
-
-main.append(...cardArray);
+За наснення на кнопку введене в інпут має додатись до певного масиву з даними, і відобразитися на екрані як елемент списку
 
 
-function createElement(type, classList = [], children = []){
-    const elem = document.createElement(type);
-    elem.classList.add(...classList);
-    elem.append(...children);
+Задачка з *: додати кожному елементу списку кнопку, яка його видаляє.
+*/
 
-    return elem;
+const list = document.querySelector('#list');
+const form = document.querySelector('#form');
+
+let todoArray = [];
+
+form.addEventListener('submit', function(event) {
+    event.preventDefault();
+    const userValue = event.target.todo.value;
+    todoArray.push({
+            text: userValue,
+            id: todoArray.length
+        });
+    event.target.reset();
+    renderList();
+});
+
+function createListItem(liObj) {
+    const li = document.createElement('li');
+    li.append(liObj.text);
+    li.dataset.id = liObj.id;
+    const button = document.createElement('button');
+    button.textContent = 'Kill me';
+    button.addEventListener('click', deleteHandler);
+    li.append(button);
+
+    return li;
+}
+
+
+function renderList() {
+    const liArray = todoArray.map(el => createListItem(el));
+    list.replaceChildren(...liArray);
+}
+
+
+function deleteHandler(event) {
+    const liId = Number(event.target.parentElement.dataset.id);
+    todoArray = todoArray.filter(liObj => liObj.id !== liId);
+    renderList();
 }
