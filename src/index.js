@@ -1,10 +1,24 @@
-const id = setInterval(function () {
+const userObj = [{
+    firstName: 'John',
+    lastName: 'Doe',
+    age: 15,
+    address: {
+        city: 'London',
+        street: 'Square',
+        house: 15
+    },
+    isSubscribe: true,
+    favouriteSong: ['1', '2', '3', '4'],
+    friend: null,
+    something: '',
+    gymAbonement: undefined,
+    sayHi: function() {
+        console.log('hi');
+    }
+}]
 
-}, 1000);
 
 
-function tick() {
-    console.log('tack');
-}
-
-tick();
+const str = JSON.stringify(userObj); // Серіалізація
+ 
+const recostructedObj = JSON.parse(str); // Десеріалізація
