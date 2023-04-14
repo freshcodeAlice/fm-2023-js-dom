@@ -2,30 +2,15 @@
     box-sizing: border-box;
 }
 
-section#root {
-    display: flex;
-    flex-direction: row;
-    flex-wrap: wrap;
+.wrapper {
+    width: 500px;
+    height: 500px;
+    background-color: rgba(137, 43, 226, 0.659);
 }
 
-.card-wrapper {
-    width: 250px;
-    border: 1px solid black;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    margin: 10px;
-}
-
-.card-img {
-    width: 100px;
-    height: 100px;
+.wrapper img {
+    width: 100%;
+    height: 100%;
     object-fit: cover;
-}
-
-.card-description {
-    width: 50%;
-    overflow: hidden;
-    white-space: nowrap;
-    text-overflow: ellipsis;
+    object-position: center;
 }
