@@ -1,16 +1,19 @@
-// Промісифікація функції 
-function loadFun() {
-    if (Math.random() > 0.5) {
-        return new Promise((resolve)=>{
-            resolve(5);
-        });
-    } else {
-        return Promise.resolve(1);
-    }
+
+/*
+Async/await
+
+
+*/
+
+async function getServerData() {
+    const responce = await fetch('https://fakestoreapi.com/products');
+    const data = await responce.json();
+
+    return data;
 }
 
 
-const res = loadFun();
-res.then((value)=>{
-    console.log('PROMISE VALUE', value);
+getServerData().then((value) => {
+    console.log(value);
 })
+
