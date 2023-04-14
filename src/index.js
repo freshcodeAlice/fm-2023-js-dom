@@ -1,34 +1,27 @@
-/* loadImage */
-
-//https://assets.entrepreneur.com/content/3x2/2000/20200429211042-GettyImages-1164615296.jpeg
+const form = document.querySelector('form');
 
 
-function loadImg(src) {
-    const img = document.createElement('img');
-    img.setAttribute('src', src);
+form.addEventListener('submit', function (event) {
+    event.preventDefault();
+    getWeatherData(event.target.city.value)
+})
 
-    return new Promise((resolve, reject) => {
-        img.addEventListener('load', (event) => {
-           resolve(img)
-        });
-        img.addEventListener('error', (event) => {
-            reject('Image cannot be loaded');
-        });
-    })
+
+async function getWeatherData(city) {
+    const API_KEY = 'f7c576ba3699bdd0b98ddcf196639992';
+    const url = `https://api.openweathermap.org/data/2.5/weather?q=${city}&appid=${API_KEY}&lang=ua&units=metric`;
+    const responce = await fetch(url);
+    const data = await responce.json();
+    console.log(data);
+    updateWeatherCard(data)
 }
 
-const root = document.querySelector('#root');
-const div = document.createElement('div');
-div.classList.add('wrapper');
-root.append(div);
-const img = loadImg('https://.jpeg')
-.then((img) => {
-    div.append(img)
-})
-.catch((err) => {
-    console.error(err);
-});
 
-setTimeout(()=> {
-    console.log('code is working')
-}, 5000);
+function updateWeatherCard(wheatherObj) {
+    const wrapper = document.querySelector('.weather-card');
+    wrapper.classList.add('show');
+    wrapper.children[0].textContent = `Погода в місті ${wheatherObj.name}`;
+    wrapper.children[1].textContent = `Температура повітря: ${wheatherObj.main.temp}`;
+    wrapper.children[2].textContent = `Погода: ${wheatherObj.weather[0].description}`;
+    wrapper.children[3].textContent = `Швидкість вітру: ${wheatherObj.wind.speed}`;
+}

@@ -2,15 +2,33 @@
     box-sizing: border-box;
 }
 
-.wrapper {
-    width: 500px;
-    height: 500px;
-    background-color: rgba(137, 43, 226, 0.659);
+body {
+    background-color: beige;
 }
 
-.wrapper img {
-    width: 100%;
-    height: 100%;
-    object-fit: cover;
-    object-position: center;
+section {
+    width: 300px;
+    border: 1px solid gray;
+    background-color: blanchedalmond;
+    border-radius: 10px;
+    text-align: center;
+    margin: 20px auto;
+}
+
+form {
+    display: flex;
+    flex-direction: column;
+    padding: 10px
+}
+
+form * {
+    margin: 10px 0;
+}
+
+.weather-card {
+    display: none;
+}
+
+.show {
+    display: block;
 }
